@@ -12,7 +12,7 @@ function handleMySQLError(error, res) {
             break;
         default:
             // console.error('Database error:', error);
-            res.status(500).json({ success: false, message: 'There is a problem', details: error.sqlMessage });
+            res.status(500).json({ success: false, message: 'There is a problem to process your request', details: error.sqlMessage });
     }
 }
 
