@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const cors = require('cors');
 const { getAllQuestionsRandomly } = require('./src/controllers/questionController');
-const { createUser } = require('./src/controllers/userController');
+const { createUser, ifUserExists } = require('./src/controllers/userController');
 
 app.use(cors());
 app.use(express.json());
@@ -14,6 +14,7 @@ app.get('/api/v1/questions', getAllQuestionsRandomly)
 
 // Users
 app.post('/api/v1/users', createUser)
+app.get('/api/v1/userExists', ifUserExists)
 
 // Start server
 app.listen(port, () => {

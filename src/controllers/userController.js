@@ -13,6 +13,34 @@ createUser = async (req, res) => {
     }
 }
 
+ifUserExists = async (req, res) => {
+    // Access userId from req.query for GET requests
+    const userId = req.query.userId;
+    if (userId.userId) {
+        try {
+            const [result] = await pool.execute(
+                'SELECT user_id FROM Users WHERE user_id = ?',
+                [userId.userId]
+            );
+            if (result.length > 0) {
+                res.send({
+                    success: true,
+                    message: 'User exists',
+                    userId: result[0].user_id,
+                });
+            } else {
+                res.send({ success: false, message: 'User does not exist' });
+            }
+        } catch (error) {
+            handleMySQLError(error, res);
+        }
+    } else {
+        // Handle the case where userId is not provided
+        res.status(400).send({ success: false, message: 'No userId provided' });
+    }
+}
+
 module.exports = {
     createUser,
+    ifUserExists,
 }
