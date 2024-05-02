@@ -14,24 +14,26 @@ createUser = async (req, res) => {
 }
 
 ifUserExists = async (req, res) => {
-    // Access userId from req.query for GET requests
-    const userId = req.query.userId;
-    if (userId.userId) {
-        try {
-            const [result] = await pool.execute(
-                'SELECT user_id FROM Users WHERE user_id = ?',
-                [userId.userId]
-            );
-            if (result.length > 0) {
-                res.send({
-                    success: true,
-                    message: 'User exists',
-                    userId: result[0].user_id,
-                });
-            } else {
-                res.send({ success: false, message: 'User does not exist' });
-            }
-        } catch (error) {
+  // Access userId from req.query for GET requests
+  const userId = req.query.userId
+  if (userId !== 'undefined') {
+    try {
+      const [result] = await pool.execute(
+        'SELECT * FROM Users WHERE user_id = ?',
+        [userId]
+      )
+      if (result.length > 0) {
+        res.send({
+          success: true,
+          message: 'User exists',
+          userId: result[0].user_id,
+          username: result[0].username,
+          max_score: result[0].max_score,
+        })
+      } else {
+        res.send({ success: false, message: 'User does not exist' })
+      }
+    } catch (error) {
             handleMySQLError(error, res);
         }
     } else {

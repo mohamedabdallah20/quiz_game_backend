@@ -2,7 +2,7 @@ const pool = require('../db/database'); // Import your database configuration
 const { handleMySQLError } = require('../utils/mysqlErrorHandling');
 
 getAllQuestionsRandomly = async (req, res) => {
-    const limit =  5;
+    const limit =  100;
   try {
     const [questions] =  await pool.query('SELECT * FROM Questions ORDER BY RAND() LIMIT ?',[limit]);
     
