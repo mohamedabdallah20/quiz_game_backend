@@ -32,12 +32,23 @@ async function submitAnswers(req, res) {
         // Execute the bulk insert
         // console.log(insertQuery)
 
-        await connection.query(insertQuery);
+        await connection.execute(insertQuery);
 
+        const [scoreResult] = await connection.execute(
+            'SELECT COUNT(*) AS correct_answers FROM Answers WHERE user_id = ? AND attempt_number = ? AND is_correct = 1',
+            [user_id, nextAttemptNumber]
+        );
+        const correctAnswers = scoreResult[0].correct_answers;
+        
+        await connection.execute(
+            'UPDATE Users SET max_score = GREATEST(max_score, ?) WHERE user_id = ?',
+            [correctAnswers, user_id]
+        );
+        
         // Commit the transaction
         await connection.commit();
 
-        res.send({ success: true, message: 'Answers submitted successfully' });
+        res.send({ success: true, message: 'Answers submitted successfully',score: correctAnswers});
     } catch (error) {
         if (connection) await connection.rollback();
         handleMySQLError(error,res);
