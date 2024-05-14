@@ -3,6 +3,15 @@ const { handleMySQLError } = require("../utils/mysqlErrorHandling");
 
 async function submitAnswers(req, res) {
     const {userId, answers} = req.body;
+    if(!userId || !answers) {
+        return res.status(400).json({success: false, message: 'userId and answers are required'});
+    }
+    if(!Array.isArray(answers)) {
+        return res.status(400).json({success: false, message: 'answers must be an array'});
+    }
+    if(answers.length === 0) {
+        return res.send({ success: true, message: 'Answers submitted successfully',score: 0});
+    }
     // console.log(userId.userId);
     const user_id = Number(userId.userId);
 
