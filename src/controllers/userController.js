@@ -4,8 +4,8 @@ const { handleMySQLError } = require('../utils/mysqlErrorHandling');
 createUser = async (req, res) => {
     try {
         const [result] = await pool.execute(
-            'INSERT INTO Users (username, email) VALUES (?, ?)',
-            [req.body.name, req.body.email]
+            'INSERT INTO Users (username, email,mobile,city) VALUES (?, ?, ?, ?)',
+            [req.body.name, req.body.email,req.body.mobile,req.body.city]
         );
         res.send({ success: true, message: 'User created successfully', userId: result.insertId });
     } catch (error) {
