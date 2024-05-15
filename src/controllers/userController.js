@@ -58,13 +58,13 @@ fetchUsersHighScore = async ()=>{
     };
   }  
 }
-const dashBoard = (socket)=>{
+const dashBoard = (socket,io)=>{
   console.log("a User connected");
 
   const sendScoreUpdates = async () => {
       const scores = await fetchUsersHighScore();
       if(scores.success){
-          socket.emit('score update', scores.users);
+          io.emit('score update', scores.users);
           // console.log("score update sent");
       }
   };

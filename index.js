@@ -29,7 +29,9 @@ app.get('/api/v1/questions', getAllQuestionsRandomly)
 app.post('/api/v1/users', createUser)
 app.get('/api/v1/userExists', ifUserExists)
 // Socket DASHBOARD
-io.on('connection',dashBoard)
+io.on('connection', (socket) => {
+    dashBoard(socket, io); // Pass the `io` instance here
+});
 // Answers
 app.post('/api/v1/answers', submitAnswers)
 
