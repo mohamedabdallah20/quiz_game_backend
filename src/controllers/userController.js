@@ -42,7 +42,43 @@ ifUserExists = async (req, res) => {
     }
 }
 
+fetchUsersHighScore = async ()=>{
+  try {
+    const [users] =  await pool.execute('SELECT user_id,username, max_score FROM `Users` WHERE max_score >0 ORDER BY max_score DESC;')
+    return {
+      success: true,
+      message: 'DashBoard is ready',
+      users
+    }
+  } catch (error) {
+    return {
+      success: false,
+      message: 'There is a problem to process your request',
+      details: error
+    };
+  }  
+}
+const dashBoard = (socket)=>{
+  console.log("a User connected");
+
+  const sendScoreUpdates = async () => {
+      const scores = await fetchUsersHighScore();
+      if(scores.success){
+          socket.emit('score update', scores.users);
+          // console.log("score update sent");
+      }
+  };
+  socket.on('score request', sendScoreUpdates);
+  // const intervalId = setInterval(sendScoreUpdates, 5000);
+
+  socket.on('disconnect', () => {
+      console.log('user disconnected');
+      // clearInterval(intervalId);
+  });
+}
+
 module.exports = {
     createUser,
     ifUserExists,
+    dashBoard,
 }
