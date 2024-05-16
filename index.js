@@ -4,7 +4,7 @@ const { Server } = require("socket.io");
 
 const cors = require('cors');
 const { getAllQuestionsRandomly } = require('./src/controllers/questionController');
-const { createUser, ifUserExists, dashBoard } = require('./src/controllers/userController');
+const { createUser, ifUserExists, dashBoard,fetchUserByEmail } = require('./src/controllers/userController');
 const { submitAnswers } = require('./src/controllers/answerController');
 
 const corsOptions = {
@@ -28,6 +28,7 @@ app.get('/api/v1/questions', getAllQuestionsRandomly)
 // Users
 app.post('/api/v1/users', createUser)
 app.get('/api/v1/userExists', ifUserExists)
+app.get('/api/v1/users/:email', fetchUserByEmail)
 // Socket DASHBOARD
 io.on('connection', (socket) => {
     dashBoard(socket, io); // Pass the `io` instance here

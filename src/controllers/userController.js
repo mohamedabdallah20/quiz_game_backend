@@ -13,6 +13,29 @@ createUser = async (req, res) => {
     }
 }
 
+fetchUserByEmail = async (req, res) => {
+    const email = req.params.email
+    try {
+        const [result] = await pool.execute(
+            'SELECT user_id FROM Users WHERE email = ?',
+            [email]
+        )
+        if (result.length > 0) {
+          // console.log(result);
+            res.send({
+                success: true,
+                message: 'User exists',
+                userId: result[0].user_id,
+            })
+        } else {
+            res.send({ success: false, message: 'User does not exist' })
+        }
+        } 
+        catch (error) {
+            handleMySQLError(error, res);
+        }
+}
+
 ifUserExists = async (req, res) => {
   // Access userId from req.query for GET requests
   const userId = req.query.userId
@@ -81,4 +104,5 @@ module.exports = {
     createUser,
     ifUserExists,
     dashBoard,
+    fetchUserByEmail
 }
