@@ -1,8 +1,416 @@
 const mysql = require('mysql2');
-const pool = require('./database');
+const pool = require('./src/db/database');
 
 // Array of questions and choices
 const data = [
+    // {
+    //     question: 'من هو اللاعب الذي يرتدي الرقم 7 في نادي .. بايرن ميونخ ؟',
+    //     choices: [
+    //         { text: 'موسيالا', isCorrect: false },
+    //         { text: 'غنابري', isCorrect: true },
+    //         { text: 'ليون غروسكا', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'ماهو الاسم الاول لـ لاعب مانشستر سيتي .. دوكو ؟',
+    //     choices: [
+    //         { text: 'سباستيان', isCorrect: false },
+    //         { text: 'مورجن', isCorrect: false },
+    //         { text: 'جيريمي', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'في كاس العالم الاخير مجموعة السعوديه كانت تضم الارجنتين و بولندا ومن ايضا ؟',
+    //     choices: [
+    //         { text: 'المكسيك', isCorrect: true },
+    //         { text: 'الهندوراس', isCorrect: false },
+    //         { text: 'الاروغواي', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'في دوري ابطال اوربا عام 2019 .. من الفريق الذي اخرج السيتي ؟',
+    //     choices: [
+    //         { text: 'ليفربول', isCorrect: false },
+    //         { text: 'ريال مدريد', isCorrect: false },
+    //         { text: 'توتنهام', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو آخر لاعب خليجي .. لعب في الدوري الانجليزي ؟',
+    //     choices: [
+    //         { text: 'علي الحبسي', isCorrect: true },
+    //         { text: 'سامي الجابر', isCorrect: false },
+    //         { text: 'مختار علي', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'عندما كان في توتنهام .. كم كان رقم اللاعب .. مورديتش ؟',
+    //     choices: [
+    //         { text: '13', isCorrect: false },
+    //         { text: '14', isCorrect: true },
+    //         { text: '15', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'في الموسم الماضي من الدوري الاسباني .. من كان هداف نادي .. اسبانيول ؟',
+    //     choices: [
+    //         { text: 'اسبا', isCorrect: false },
+    //         { text: 'برايثوايت', isCorrect: false },
+    //         { text: 'خوسيلو', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'بـ استثناء انشيلوتي وغوارديولا .. اذكرلي مدرب وصل الى نهائي دوري ابطال اوربا 4 مرات ؟',
+    //     choices: [
+    //         { text: 'سير اليكس', isCorrect: true },
+    //         { text: 'مورينيو', isCorrect: false },
+    //         { text: 'زيدان', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'في يورو 2012 .. من كان المركز الرابع في مجموعة اللمانيا ؟',
+    //     choices: [
+    //         { text: 'بولندا', isCorrect: false },
+    //         { text: 'هولندا', isCorrect: true },
+    //         { text: 'كرواتيا', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'في كاس العالم عام 2002 .. هداف البطوله كان رونالدو .. من البرازيلي الثاني ؟',
+    //     choices: [
+    //         { text: 'رنالدينهو', isCorrect: false },
+    //         { text: 'روبرتو كارلوس', isCorrect: false },
+    //         { text: 'ريفالدو', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'اذكرلي النادي الاوكراني الذي لعب له .. شيفشينكو ؟',
+    //     choices: [
+    //         { text: 'دينامو كييف', isCorrect: true },
+    //         { text: 'شختار', isCorrect: false },
+    //         { text: 'كارباتي لفيف', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'في نهائي دوري ابطال اوربا عام 2011 بين مانشستر وبرشلونه .. من اللاعب الذي سجل اول هدف ؟',
+    //     choices: [
+    //         { text: 'روني', isCorrect: false },
+    //         { text: 'بيدرو', isCorrect: true },
+    //         { text: 'ميسي', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'قبل نادي اي سي ميلان من اي نادي تم شراء اللاعب اسماعيل بن ناصر ؟',
+    //     choices: [
+    //         { text: 'جنوى', isCorrect: false },
+    //         { text: 'لاتسيو', isCorrect: false },
+    //         { text: 'امبولي', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'ماهو النادي الانجليزي الوحيد الذي لعب له .. هيغوايين ؟',
+    //     choices: [
+    //         { text: 'تشيلسي', isCorrect: true },
+    //         { text: 'مان ستي', isCorrect: false },
+    //         { text: 'توتنهام', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو آخر مدرب اسباني درب نادي .. نيوكاسل ؟',
+    //     choices: [
+    //         { text: 'ديل بوسكي', isCorrect: false },
+    //         { text: 'رافا بينيتز', isCorrect: true },
+    //         { text: 'هايكتور كارنكا', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'بـ استثناء ميسي .. من هو آخر لاعب لاتيني ترشح لـ جائزة افضل لاعب بالعام ؟',
+    //     choices: [
+    //         { text: 'فينيسيوس', isCorrect: false },
+    //         { text: 'سواريز', isCorrect: false },
+    //         { text: 'نيمار', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'في نهائي كأس العالم للانديه عام 2021 .. اذكرلي احد اطراف النهائي',
+    //     choices: [
+    //         { text: 'تشلسي بالميراس', isCorrect: true },
+    //         { text: 'ليفربول بالميراس', isCorrect: false },
+    //         { text: 'ريال مدريد بالميراس', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اكثر حارس نظافه للشباك في تاريخ الدوري الانجليزي ؟',
+    //     choices: [
+    //         { text: 'شمايكل الأب', isCorrect: false },
+    //         { text: 'بيتر تشيك', isCorrect: true },
+    //         { text: 'أليسون بيكر', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'قبل انتقاله الى نادي توتنهام .. من اين تم شراء الحارس فيكاريو',
+    //     choices: [
+    //         { text: 'جنوى', isCorrect: false },
+    //         { text: 'ميلان', isCorrect: false },
+    //         { text: 'امبولي', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو الهداف التاريخي لـ نادي .. بايرن ميونخ ؟',
+    //     choices: [
+    //         { text: 'جيرد مولر', isCorrect: true },
+    //         { text: 'كارل هاينز', isCorrect: false },
+    //         { text: 'ليفاندوسكي', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'في الموسم الماضي من دوري ابطال اوربا .. من الفريق الذي اخرج بنفيكا ؟',
+    //     choices: [
+    //         { text: 'مان ستي', isCorrect: false },
+    //         { text: 'أنتر ميلان', isCorrect: true },
+    //         { text: 'ريال مدريد', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'في يورو 2012 من المنتخب الذي اخرج فرنسا من البطوله ؟',
+    //     choices: [
+    //         { text: 'إيطاليا', isCorrect: false },
+    //         { text: 'المانيا', isCorrect: false },
+    //         { text: 'أسبانيا', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'في اي سنه انتقل اول مره كاكا الى نادي .. اي سي ميلان ؟',
+    //     choices: [
+    //         { text: '٢٠٠٣', isCorrect: true },
+    //         { text: '٢٠٠٤', isCorrect: false },
+    //         { text: '٢٠٠٢', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'بـ استثناء بنزيما و مبابي .. من هو آخر لاعب فرنسي ترشح لـ جائزه افضل لاعب في العالم ؟',
+    //     choices: [
+    //         { text: 'كانتي', isCorrect: false },
+    //         { text: 'قريزمان', isCorrect: true },
+    //         { text: 'زيدان', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو آخر لاعب سجل هدفين في نهائي دوري ابطال اوربا؟',
+    //     choices: [
+    //         { text: 'امبابي', isCorrect: false },
+    //         { text: 'كرستيانو رونالدو', isCorrect: false },
+    //         { text: 'جارث بيل', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من اللاعب الحالي الذي يرتدي الرقم 10 في نادي .. نيوكاسل',
+    //     choices: [
+    //         { text: 'انثوني غوردن', isCorrect: true },
+    //         { text: 'الكسندر إسحاق', isCorrect: false },
+    //         { text: 'مارك جيليسبي', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'قبل دي زيربي .. من كان مدرب نادي برايتون',
+    //     choices: [
+    //         { text: 'كريس هويتون', isCorrect: false },
+    //         { text: 'غراهام بوتر', isCorrect: true },
+    //         { text: 'طوني بلوم', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'في نهائي يورو عام 2004 بين البرتغال و اليونان .. من سجل هدف المباراة ؟',
+    //     choices: [
+    //         { text: 'نونو فالينتي', isCorrect: false },
+    //         { text: 'زيسيس فريزاس', isCorrect: false },
+    //         { text: 'انجيلوس خاريستياس', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'اذكرلي لاعب حالي لعب لـ نادي روما ويوفينتوس ؟',
+    //     choices: [
+    //         { text: 'ديبالا', isCorrect: true },
+    //         { text: 'لوكاكو', isCorrect: false },
+    //         { text: 'روي باتريسيو', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'في عام 2000 فيغو فاز في جائزة افضل لاعب في العالم .. اذكرلي الثاني او الثالث ؟',
+    //     choices: [
+    //         { text: 'زيدان رونالدو', isCorrect: false },
+    //         { text: 'زيدان شفشينكو', isCorrect: true },
+    //         { text: 'شيفشنكو رونالدو', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اكثر فريق استقبل اهداف في تاريخ نهائي دوري ابطال اوربا',
+    //     choices: [
+    //         { text: 'ريال مدريد', isCorrect: false },
+    //         { text: 'ميلان', isCorrect: false },
+    //         { text: 'اليوفي', isCorrect: true }
+    //     ]
+    // },
+    // {
+    //     question: 'في الدوري الاسباني موسم 2021 .. من كان النادي الوحيد الذي يبدأ اسمه بحرف .. الهاء',
+    //     choices: [
+    //         { text: 'هويسكا', isCorrect: true },
+    //         { text: 'هدرسفيلد تاون', isCorrect: false },
+    //         { text: 'هسيتاو ريفو', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اول فريق سجل عليه كريستيانو رونالدو في دوري ابطال اوربا ؟',
+    //     choices: [
+    //         { text: 'ليون', isCorrect: false },
+    //         { text: 'روما', isCorrect: true },
+    //         { text: 'مارسيليا', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'في كاس العالم للانديه من هو آخر نادي حقق البطوله 3 مرات متتاليه ؟',
+    //     choices: [
+    //         { text: 'برشلونة', isCorrect: false },
+    //         { text: 'بايرن ميونخ', isCorrect: false },
+    //         { text: 'ريال مدريد', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'بـ استثناء جواو فيلكس و غريزمان .. اذكرلي لاعب لعب لـ برشلونه و اتليتيكو',
+    //     choices: [
+    //         { text: 'سواريز', isCorrect: true },
+    //         { text: 'دي بول', isCorrect: false },
+    //         { text: 'اوبلاك', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'في نهائي كاس العالم عام 2014 .. من صنع الهدف ؟',
+    //     choices: [
+    //         { text: 'مسعود اوزيل', isCorrect: false },
+    //         { text: 'اندرية شوليه', isCorrect: true },
+    //         { text: 'توني كروس', isCorrect: false },
+    //     ]
+    // },
+    // {
+    //     question: 'اذكرلي مدرب اسباني سبق وان درب نادي .. تشيلسي',
+    //     choices: [
+    //         { text: 'اميري', isCorrect: false },
+    //         { text: 'لوبيتيغي', isCorrect: false },
+    //         { text: 'رافا بينتيز', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اكثر لاعب لعب نهائي دوري ابطال اوربا ؟',
+    //     choices: [
+    //         { text: 'مالديني', isCorrect: true },
+    //         { text: 'ميسي', isCorrect: false },
+    //         { text: 'راموس', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'ماهو آخر نادي اللماني وصل الى نهائي اليوربا ليغ ؟',
+    //     choices: [
+    //         { text: 'بوروسيا دورتمند', isCorrect: false },
+    //         { text: 'آينتراخت فرانكفورت', isCorrect: true },
+    //         { text: 'هوفنهام', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'في كاس اسبانيا الموسم الماضي .. اذكرلي احد مسجلين الأهداف',
+    //     choices: [
+    //         { text: 'فينيسوس', isCorrect: false },
+    //         { text: 'فارفيردي', isCorrect: false },
+    //         { text: 'رودريجو', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'كم مرة فازت السعودية في كأس العرب؟',
+    //     choices: [
+    //         { text: 'مرتين', isCorrect: true },
+    //         { text: 'ثلاث مرات', isCorrect: false },
+    //         { text: 'مره واحدة', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'متى انطلقت بطولة كأس العالم؟',
+    //     choices: [
+    //         { text: '١٩٢٦', isCorrect: false },
+    //         { text: '١٩٣٠', isCorrect: true },
+    //         { text: '١٩٣٤', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو أكثر مدرب حصل على لقب دوري أبطال أوروبا؟',
+    //     choices: [
+    //         { text: 'زيدان', isCorrect: false },
+    //         { text: 'بيب قوارديولا', isCorrect: false },
+    //         { text: 'كارلو انشيلوتي', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اللاعب الوحيد الذي شارك في ١٩ موسم متتالي في الدوري السعودي؟',
+    //     choices: [
+    //         { text: 'محمد الشلهوب', isCorrect: true },
+    //         { text: 'وليد عبدالله', isCorrect: false },
+    //         { text: 'محمد نور', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'كم عدد الأندية التي شاركت في الموسم الافتتاحي للدوري الممتاز؟',
+    //     choices: [
+    //         { text: '٢٠', isCorrect: false },
+    //         { text: '٢٢', isCorrect: true },
+    //         { text: '١٨', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من اللاعب الألماني الدولي السابق الذي أصبح مصارعا محترفا في WWE',
+    //     choices: [
+    //         { text: 'بودولسكي', isCorrect: false },
+    //         { text: 'اندرية فيلابواس', isCorrect: false },
+    //         { text: 'تيم ويس', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'متى كانت النسخة الأولى من كأس أمم أوروبا؟',
+    //     choices: [
+    //         { text: '١٩٦٠', isCorrect: true },
+    //         { text: '١٩٥٦', isCorrect: false },
+    //         { text: '١٩٥٨', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو هداف منتخب إنجلترا في كأس أمم أوروبا؟',
+    //     choices: [
+    //         { text: 'هاري كين', isCorrect: false },
+    //         { text: 'ألان شيرار', isCorrect: true },
+    //         { text: 'وأين روني', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'في أي عام زادت المنتخبات المشاركة في كأس أمم أوروبا من ١٦ إلى ٢٤؟',
+    //     choices: [
+    //         { text: '٢٠١٢', isCorrect: false },
+    //         { text: '٢٠٠٨', isCorrect: false },
+    //         { text: '٢٠١٦', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من الذي فاز بكأس أمم أوروبا كلاعب ومدرب؟',
+    //     choices: [
+    //         { text: 'بيرتي فوجتس', isCorrect: true },
+    //         { text: 'ديدي ديشامب', isCorrect: false },
+    //         { text: 'ديل بوسكي', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من فاز بجائزة رجل المباراة في نهائي كأس العالم ٢٠١٤؟',
+    //     choices: [
+    //         { text: 'ليونيل ميسي', isCorrect: false },
+    //         { text: 'ماريو جويتز', isCorrect: true },
+    //         { text: 'باستيان', isCorrect: false }
+    //     ]
+    // },
     // {
     //     question: 'What is the longest word in the English language?',
     //     choices: [
@@ -811,12 +1219,12 @@ const insertData = async () => {
     try {
         for (const item of data) {
             // Insert the question and get the inserted id
-            const [result] = await pool.promise().query('INSERT INTO Questions (question_text) VALUES (?)', [item.question]);
+            const [result] = await pool.query('INSERT INTO Questions (question_text) VALUES (?)', [item.question]);
             const questionId = result.insertId;
 
             // Insert all choices for the question
             for (const choice of item.choices) {
-                await pool.promise().query('INSERT INTO Choices (question_id, choice_text, is_correct) VALUES (?, ?, ?)', [
+                await pool.query('INSERT INTO Choices (question_id, choice_text, is_correct) VALUES (?, ?, ?)', [
                     questionId,
                     choice.text,
                     choice.isCorrect
