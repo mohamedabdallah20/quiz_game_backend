@@ -412,6 +412,398 @@ const data = [
     //     ]
     // },
     // {
+    //     question: 'لاعب حالي لعب في أياكس – يوفنتوس – بايرن ميونخ',
+    //     choices: [
+    //         { text: 'كم مين جاي', isCorrect: false },
+    //         { text: 'بونا سار', isCorrect: false },
+    //         { text: 'ماتياس دي لخت', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'لاعب حالي لعب في ستون فيلا – نوتس كاونتي – أستون فيلا – مانشستر سيتي',
+    //     choices: [
+    //         { text: 'جاك جريلتش', isCorrect: true },
+    //         { text: 'جاكوب رايت', isCorrect: false },
+    //         { text: 'ميكا هاملتون', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'لاعب حالي لعب في تشيلسي – ويغان الإنجليزي – تشيلسي',
+    //     choices: [
+    //         { text: 'مالو غوستو', isCorrect: false },
+    //         { text: 'ريس جيمس', isCorrect: true },
+    //         { text: 'نوني مادويك', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'لاعب حالي لعب في راسينغ الأرجنتيني – فالينسيا – راسينغ الأرجنتيني – فالينسيا – أودينيزي – أتليتيكو مدريد',
+    //     choices: [
+    //         { text: 'مولينا', isCorrect: false },
+    //         { text: 'أنخيل كوريا', isCorrect: false },
+    //         { text: 'دي بول', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'لاعب حالي لعب في كالياري – كومو – كالياري – انتر',
+    //     choices: [
+    //         { text: 'باريلا', isCorrect: true },
+    //         { text: 'باستوني', isCorrect: false },
+    //         { text: 'أسلاني', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'لاعب حالي لعب في اوساسونا الإسباني – مارسيليا الفرنسي – تشيلسي – أتليتيكو مدريد',
+    //     choices: [
+    //         { text: 'خيمينيز', isCorrect: false },
+    //         { text: 'أزبيليكويتا', isCorrect: true },
+    //         { text: 'مولدوفان', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'لاعب حالي لعب في ليدز – مانشستر سيتي – ويستهام',
+    //     choices: [
+    //         { text: 'أنطونيو', isCorrect: false },
+    //         { text: 'جارود بوين', isCorrect: false },
+    //         { text: 'كالفن فيليبس', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'لاعب حالي لعب في نانس الفرنسي – إشبيلية – برشلونة – توتنهام – برشلونة – أستون فيلا',
+    //     choices: [
+    //         { text: 'كليمان لينغليه', isCorrect: true },
+    //         { text: 'لوكاس دينيه', isCorrect: false },
+    //         { text: 'ألكس مورينو', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'لاعب حالي لعب في تشيلسي – فيتسيه الهولندي – تشيلسي – ليفربول – بورنموث',
+    //     choices: [
+    //         { text: 'ادم سميث', isCorrect: false },
+    //         { text: 'سولانكي', isCorrect: true },
+    //         { text: 'تايلر ادمز', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو المنتخب الأول الذي فاز بكأس العالم خارج قارته ؟',
+    //     choices: [
+    //         { text: 'الأورغواي', isCorrect: false },
+    //         { text: 'إيطاليا', isCorrect: false },
+    //         { text: 'البرازيل', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو الفريق الرومانيا الذي قام بالفوز بدوري أبطال أوروبا لمرة واحدة',
+    //     choices: [
+    //         { text: 'ستيوا بوخارست', isCorrect: true },
+    //         { text: 'إيمولا', isCorrect: false },
+    //         { text: 'تشيزينا', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'ما هي الدولة التي قامت بارتداء القمصان الخاصة بها والأسماء على ظهرها لأول مرة في نهائيات كأس العالم',
+    //     choices: [
+    //         { text: 'البرازيل', isCorrect: false },
+    //         { text: 'إنجلترا', isCorrect: true },
+    //         { text: 'أمريكا', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'ما هو النادي الذي سجل فيه اللاعب واين روني هدفه الأول؟',
+    //     choices: [
+    //         { text: 'ليفربول', isCorrect: false },
+    //         { text: 'أستون فيلا', isCorrect: false },
+    //         { text: 'أرسنال', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'ما هو النادي الذي يرتبط بمصطلح جالاكتيكوس؟',
+    //     choices: [
+    //         { text: 'ريال مدريد', isCorrect: true },
+    //         { text: 'أتليتكو مدريد', isCorrect: false },
+    //         { text: 'إسبانيول', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'متى تم تغيير اسم كأس أوروبا إلى دوري أبطال أوروبا؟',
+    //     choices: [
+    //         { text: 'موسم ٩٣ ، ٩٤', isCorrect: false },
+    //         { text: 'موسم ٩٢ ، ٩٣', isCorrect: true },
+    //         { text: 'موسم ٩٥ ، ٩٦', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'ما هو أول فريق فاز بكأس أوروبا من المملكة المتحدة؟',
+    //     choices: [
+    //         { text: 'مانشستر يونايتد', isCorrect: false },
+    //         { text: 'ليفربول', isCorrect: false },
+    //         { text: 'سلتيك', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'كم مرة فازت السعودية ببطولة آسيا؟',
+    //     choices: [
+    //         { text: 'أربع مرات', isCorrect: false },
+    //         { text: 'خمس مرات', isCorrect: false },
+    //         { text: 'ثلاث مرات', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو هداف برشلونة عبر التاريخ؟',
+    //     choices: [
+    //         { text: 'ميسي', isCorrect: true },
+    //         { text: 'ماردونا', isCorrect: false },
+    //         { text: 'سواريز', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'أين كان يلعب تيري هنري قبل انضمامه لنادي أرسنال؟',
+    //     choices: [
+    //         { text: 'موناكو', isCorrect: false },
+    //         { text: 'يوفنتوس', isCorrect: true },
+    //         { text: 'برشلونة', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'كم عدد الدول التي تأهلت لكأس العالم 2022؟',
+    //     choices: [
+    //         { text: '٣٤', isCorrect: false },
+    //         { text: '٣٢', isCorrect: true },
+    //         { text: '٣٦', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'قام ميسي بارتداء رقمين أثناء اللعب لبرشلونة 30 و10، وهناك رقم آخر قام بارتدائه فما هو؟',
+    //     choices: [
+    //         { text: '١٨', isCorrect: false },
+    //         { text: '١٦', isCorrect: false },
+    //         { text: '١٩', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'ما هو عدد المرات التي فاز خلالها نادي بايرن ميونخ الأماني بدوري أبطال أوروبا',
+    //     choices: [
+    //         { text: '٦', isCorrect: true },
+    //         { text: '٧', isCorrect: false },
+    //         { text: '٥', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اللاعب الأكبر سناً الذي شارك في كأس العالم؟',
+    //     choices: [
+    //         { text: 'محمد الشلهوب', isCorrect: false },
+    //         { text: 'عصام الحضري', isCorrect: true },
+    //         { text: 'حسام حسن', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'كم عدد أبطال كرة القدم في كأس العالم؟',
+    //     choices: [
+    //         { text: '٩', isCorrect: false },
+    //         { text: '١٠', isCorrect: false },
+    //         { text: '٨', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من الاعب الذي كان يلعب في برشلونة قد تعرض للسجن نتيجة أنه كان يحمل جواز سفر مزور',
+    //     choices: [
+    //         { text: 'رونالدينهو', isCorrect: true },
+    //         { text: 'داني ألفيش', isCorrect: false },
+    //         { text: 'ماسكيرانو', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'نادي تحطمت الطائرة التي كانت تستقل لاعبيه وأدت إلى موت جميع اللاعبين بالإضافة إلى ركاب آخرين في عام 1958م؟',
+    //     choices: [
+    //         { text: 'بايرن ميونخ', isCorrect: false },
+    //         { text: 'مانشستر يونايتد', isCorrect: true },
+    //         { text: 'يوفينتوس', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'متى تم تأسيس نادي مانشستر سيتي؟',
+    //     choices: [
+    //         { text: '١٨٩٩', isCorrect: false },
+    //         { text: '١٨٨٨', isCorrect: false },
+    //         { text: '١٨٨٠', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'ما هو أكثر المنتخبات فوزاً بكأس الأمم الأفريقية؟',
+    //     choices: [
+    //         { text: 'المنتخب المصري', isCorrect: true },
+    //         { text: 'المنتخب الكامروني', isCorrect: false },
+    //         { text: 'المنتخب النيجيري', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'باستثناء محمد صلاح وساديو ماني من هو اللاعب الثالث الذي شارك في الحذاء الذهبي في الدوري الإنجليزي الممتاز في ٢٠١٨-٢٠١٩ ؟',
+    //     choices: [
+    //         { text: 'سون', isCorrect: false },
+    //         { text: 'اوباميانق', isCorrect: true },
+    //         { text: 'هاري كين', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اللاعب صاحب أسرع هاتريك في الدوري الإنجليزي الممتاز؟',
+    //     choices: [
+    //         { text: 'واين روني', isCorrect: false },
+    //         { text: 'فان بيرسي', isCorrect: false},
+    //         { text: 'ساديو ماني', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اللاعب الذي سجل أسرع هدف في تاريخ الدوري الإنجليزي في وقت ٧.٦٩ ثانية؟',
+    //     choices: [
+    //         { text: 'شين لونج', isCorrect: true },
+    //         { text: 'هازارد', isCorrect: false },
+    //         { text: 'ساديو ماني', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو مدرب توتنهام السابق الذي تنافس في رالي داكار؟',
+    //     choices: [
+    //         { text: 'بوتنشينوا', isCorrect: false },
+    //         { text: 'أندريه فيلاس بواس', isCorrect: true },
+    //         { text: 'مورينيو', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'سجل كريستيانو رونالدو هدفه الأول في دوري أبطال أوروبا بعد كم مباراة ؟',
+    //     choices: [
+    //         { text: '٢٦', isCorrect: false },
+    //         { text: '٢٨', isCorrect: false },
+    //         { text: '٢٧', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'في أي عام مما يلي تأسس نادي ليفربول',
+    //     choices: [
+    //         { text: '١٨٩٢', isCorrect: true },
+    //         { text: '١٨٩٥', isCorrect: false },
+    //         { text: '١٨٩٩', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'أي فريق فاز بلقب دوري الدرجة الأولى الإنجليزي لكرة القدم في موسم 1900-01',
+    //     choices: [
+    //         { text: 'مانشستر يونايتد', isCorrect: false },
+    //         { text: 'ليفربول', isCorrect: true },
+    //         { text: 'آرسنال', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'فازت ألمانيا بكأس العالم أربع مرات، لكن كم مرة فعلوا ذلك كدولة موحدة؟',
+    //     choices: [
+    //         { text: 'ثلاث مرات', isCorrect: false },
+    //         { text: 'مرة واحدة', isCorrect: true },
+    //         { text: 'مرتين', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'أدار يورجن كلوب فريقين في ألمانيا، بوروسيا دورتموند، والآخر هو؟',
+    //     choices: [
+    //         { text: 'بايرن ليفركوزن', isCorrect: false },
+    //         { text: 'هيرتا برلين', isCorrect: false },
+    //         { text: 'ماينز', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'فاز ثلاثة أشخاص بكأس العالم كلاعب ومدرب. ماريو زاجالو ديدييه ديشامب … هل يمكنك تسمية الثالث؟',
+    //     choices: [
+    //         { text: 'فرانز بيكنباور', isCorrect: true },
+    //         { text: 'زيدان', isCorrect: false },
+    //         { text: 'زيكو', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'في أي بطولة كأس عالم سجل فيها دييغو مارادونا هدفه الشهير “باليد”؟',
+    //     choices: [
+    //         { text: 'إسبانيا ٨٢', isCorrect: false },
+    //         { text: 'المكسيك ٨٦', isCorrect: true },
+    //         { text: 'إيطاليا ٩٠', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو المنتخب الوحيد الذي تمكن من التأهل لجميع بطولات كأس العالم؟',
+    //     choices: [
+    //         { text: 'الأرجنتين', isCorrect: false },
+    //         { text: 'المانيا', isCorrect: false },
+    //         { text: 'البرازيل', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'متى أقيمت ثاني بطولة كأس عالم لكرة القدم؟',
+    //     choices: [
+    //         { text: '١٩٣٤', isCorrect: true },
+    //         { text: '١٩٥٢', isCorrect: false },
+    //         { text: '١٩٥٦', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'في أي دولة أقيمت ثاني بطولة كأس عالم لكرة القدم؟',
+    //     choices: [
+    //         { text: 'الأروغواي', isCorrect: false },
+    //         { text: 'إيطاليا', isCorrect: true },
+    //         { text: 'البرازيل', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من أشهر لاعب في تاريخ كرة القدم؟',
+    //     choices: [
+    //         { text: 'بيليه', isCorrect: false },
+    //         { text: 'بيكهام', isCorrect: false },
+    //         { text: 'كريستيانو رونالدو', isCorrect: true }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو اللاعب الوحيد الذي فاز بدوري أبطال أوروبا مع ثلاثة أندية مختلفة؟',
+    //     choices: [
+    //         { text: 'كلارنس سيدورف', isCorrect: true },
+    //         { text: 'زلاتان إبراهيموفيتش', isCorrect: false },
+    //         { text: 'داني ألفيش', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'ما هو الرقم القياسي لأهداف كأس العالم؟',
+    //     choices: [
+    //         { text: '١٧', isCorrect: false },
+    //         { text: '١٦', isCorrect: true },
+    //         { text: '١٥', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو المدرب المعروف بلقب سبيشال ون ؟',
+    //     choices: [
+    //         { text: 'بيب غوارديولا', isCorrect: false },
+    //         { text: 'يورجن كلوب', isCorrect: false },
+    //         { text: 'جوزيه مورينيو', isCorrect: true },
+    //     ]
+    // },
+    // {
+    //     question: 'ما اسم المدرب الذي قاد منتخب إيطاليا لتحقيق كأس العالم لكرة القدم عام 2006 ؟',
+    //     choices: [
+    //         { text: 'ليبي', isCorrect: true },
+    //         { text: 'مانشيني', isCorrect: false },
+    //         { text: 'أريغو ساكي', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'ما هو المنتخب العربي الذي يطلق عليه لقب العنابي ؟',
+    //     choices: [
+    //         { text: 'البحريني', isCorrect: false },
+    //         { text: 'القطري', isCorrect: true },
+    //         { text: 'العُماني', isCorrect: false }
+    //     ]
+    // },
+    // {
+    //     question: 'من هو أول لاعب عربي فاز مع فريقه ببطولة دوري أبطال أوروبا ؟',
+    //     choices: [
+    //         { text: 'أشرف حكيمي', isCorrect: false },
+    //         { text: 'محمد صلاح', isCorrect: false },
+    //         { text: 'رابح ماجر', isCorrect: true },
+    //     ]
+    // }
+    // {
     //     question: 'What is the longest word in the English language?',
     //     choices: [
     //         { text: 'Antidisestablishmentarianism', isCorrect: true },
