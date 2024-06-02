@@ -12,6 +12,14 @@ createUser = async (req, res) => {
         handleMySQLError(error, res);
     }
 }
+const fetchAllUsers = async (req, res) => {
+    try {
+        const [users] = await pool.execute('SELECT * FROM Users order by max_score;');
+        res.send({ success: true, message: 'Users are ready', users });
+    } catch (error) {
+        handleMySQLError(error, res);
+    }
+}
 
 fetchUserByEmail = async (req, res) => {
     const email = req.params.email
@@ -104,5 +112,6 @@ module.exports = {
     createUser,
     ifUserExists,
     dashBoard,
-    fetchUserByEmail
+    fetchUserByEmail,
+    fetchAllUsers
 }
