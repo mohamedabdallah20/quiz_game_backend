@@ -14,7 +14,7 @@ createUser = async (req, res) => {
 }
 const fetchAllUsers = async (req, res) => {
     try {
-        const [users] = await pool.execute('SELECT * FROM Users order by max_score;');
+        const [users] = await pool.execute('SELECT * FROM Users order by max_score DESC;');
         res.send({ success: true, message: 'Users are ready', users });
     } catch (error) {
         handleMySQLError(error, res);
